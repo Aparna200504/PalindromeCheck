@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <title>Palindrome Checker App by Aparna</title>
+    <style>
+        * {
+            font-size: 40px;
+            font-family: Arial;
+        }
+
+        body {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <center><br>
+        <h1>Palindrome Checker App</h1>
+        <form onsubmit="check()">
+            <input type="text" placeholder="enter text here" id="text" />
+            <br><br>
+            <input type="submit" value = "check" />
+            <br><br>
+            <h2 id="msg"></h2>
+        </form>
+
+        <script>
+            function check() {
+                event.preventDefault();
+                let text = document.getElementById("text");
+                let msg = document.getElementById("msg");
+
+                if (text.value.trim() == "") {
+                    alert("enter a text");
+                    text.value = "";
+                    msg.innerHTML = "";
+                    text.focus();
+                    return;
+                }
+
+                let str = text.value;
+                let rev = str.split("").reverse().join("");
+
+                if(str == rev){
+                    msg.innerHTML = "It is a palindrome";
+                }
+
+                else{
+                    msg.innerHTML = "It is not a Palindrome";
+                }
+  
+            }
+        </script>
+    </center>
+</body>
+
+</html>
